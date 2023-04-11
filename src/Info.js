@@ -4,13 +4,11 @@ const Info = () => {
   const[name, setName] = useState('');
   const [nickname, setNickname] = useState('');
 
+  //컴포넌트가 처음 마운트 될 때 2번 렌더링(실행)이 발생한다.
+  //state(name 또는 nickname) 값이 변경될 때마다 렌더링이 발생한다.
   useEffect(() => {
-    console.log("렌더링이 완료되었습니다.");
-    console.log({
-      name,
-      nickname,
-    });
-  });
+    console.log("마운트 될 때만 실행됩니다.");
+  }, []);
 
   const onChangeName = (e) => {
     setName(e.target.value);
