@@ -1,23 +1,16 @@
 import { useState } from "react";
-import Info from "./Info";
+import Timer from "./component/Timer";
 
 const App = () => {
-  const [visible, setVisible] = useState(false);
-
-  return (
+  const [showTimer, setShowTimer] = useState(false);
+  return(
     <div>
-      <button onClick={() => {
-        setVisible(!visible);
-      }}>
-        {visible ? "숨기기" : "보이기"}
+      {showTimer && <Timer/>}
+      <button onClick = {() => setShowTimer(!showTimer)}>
+        Toggle
       </button>
-      <hr/>
-      {visible && <Info/>}
-      {/* visible 값이 true일 때 Info 컴포넌트를 렌더링 */}
-      {/* visible 값이 false일 때 전체는 무조건 false이다 */}
-      {/* 따라서 Info 컴포넌트는 작동하지 않는다. */}
     </div>
   );
-};
+}
 
 export default App;
