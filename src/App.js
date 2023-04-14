@@ -1,16 +1,7 @@
-import { useState } from "react";
-import Timer from "./component/Timer";
+import Counter from "./Counter";
 
 const App = () => {
-  const [showTimer, setShowTimer] = useState(false);
-  return(
-    <div>
-      {showTimer && <Timer/>}
-      <button onClick = {() => setShowTimer(!showTimer)}>
-        Toggle
-      </button>
-    </div>
-  );
-}
+  return <Counter/>;
+};
 
 export default App;
