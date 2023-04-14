@@ -4,20 +4,12 @@ const Info = () => {
   const[name, setName] = useState('');
   const [nickname, setNickname] = useState('');
 
-  //useEffect의 두번째 인자값을 [name]으로 표시하면
-  //state의 name 값이 변경 될 때마다 실행한다.
   useEffect(() => {
     console.log("effect");
-    console.log(name);
-
-    //cleanup 함수
-    //업데이트 되기 직전에 호출한다.
-    //컴포넌트가 화면에서 사라질 때(언마운트) 호출한다.
     return() => {
-      console.log("cleanup");
-      console.log(name);
-    }
-  }, [name]);
+      console.log("unmount");
+    };
+  }, []); //2번째 인자를 값이 없는 배열로 표현하면 언마운트 된다.
 
   const onChangeName = (e) => {
     setName(e.target.value);
