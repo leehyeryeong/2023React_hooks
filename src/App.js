@@ -1,20 +1,18 @@
-import { useEffect, useState, useCallback } from "react";
+import React, { useState } from "react";
 
 const App = () => {
-  const [number, setNumber] = useState(0);
-  const someFunction = useCallback(() => {
-    console.log(`someFunc : number : ${number}`);
-    return;
-  }, [number]);
+  const [count, setCount] = useState(0);
 
-  useEffect(() => {
-    console.log("someFunction이 변경되었습니다.");
-  }, [someFunction]);
+  console.log("렌더링");
+
+  const increaseCountState = () => {
+    setCount(count + 1);
+  };
+
   return (
     <div>
-      <input type="number" value={number} onChange={(e) => setNumber(e.target.value)}/>
-      <br/>
-      <button onClick={someFunction}>Call someFunc</button>
+      <p>State : {count}</p>
+      <button onClick={increaseCountState}>State 증가</button>
     </div>
   );
 };
